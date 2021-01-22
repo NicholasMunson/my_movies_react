@@ -1,23 +1,20 @@
-import logo from './logo.svg';
+import Search from './components/Search'
+import TitleViewer from './components/TitleViewer'
+import { useState } from 'react'
 import './App.css';
 
-function App() {
+const App = () => {
+  const [currentMovieSelection, setMovieSelection] = useState([])
+
+  const movieSelectionHandler = (movieData) => {
+    setMovieSelection(movieData)
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1 className="title"> Find a movie below</h1>
+      <Search movieSelectionHandler={movieSelectionHandler}/>
+      <TitleViewer titles={currentMovieSelection}/>
     </div>
   );
 }
