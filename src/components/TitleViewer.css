@@ -1,11 +1,11 @@
 .card{
-  max-width: 350px;
+  max-width: 200px;
   margin: 25px;
   align-items: center;
 }
 
 .image{
   width: 100%;
-  max-width: 300px;
+  max-width: 200px;
   padding: 10px;
 }
