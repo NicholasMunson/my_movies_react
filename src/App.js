@@ -3,7 +3,7 @@ import TitleViewer from './components/TitleViewer'
 import ErrorModal from './components/ErrorModal'
 import Header from './components/Header'
 import { useState } from 'react'
-import './App.css';
+import './App.css'
 
 const App = () => {
   const [currentMovieSelection, setMovieSelection] = useState([])
@@ -24,18 +24,20 @@ const App = () => {
     setErrorMessage("")
   }
 
+  const errorHandler = 
+    errorModal !== false ? 
+    <ErrorModal errorResetHandler={errorResetHandler} errorMessage={errorMessage} /> :
+    <TitleViewer titles={currentMovieSelection} errorModal={errorModal}/>
+  
+
   return (
     <div className="App">
       <Header />
       <h1 className="title"> Find a movie below</h1>
       <Search movieSelectionHandler={movieSelectionHandler} errorModalHandler={errorModalHandler}/>
-      { 
-        errorModal !== false ? 
-        <ErrorModal errorResetHandler={errorResetHandler} errorMessage={errorMessage} /> :
-        <TitleViewer titles={currentMovieSelection} errorModal={errorModal}/>
-      }
+      { errorHandler }
     </div>
-  );
+  )
 }
 
 export default App;

@@ -12,8 +12,16 @@ const TitleViewer = (props) => {
       </figure>
     </li>
   )
-  return(
-    <ul className=" box is-flex is-flex-wrap-wrap is-justify-content-center has-background-white-ter is-flex-grow-5	" style={{visibility: (titles.length !== 0 ?  "visible" : "hidden") }}>{movies}</ul>
-  )
+
+  const titleViewerReturn =   
+    <ul 
+      className=" box is-flex is-flex-wrap-wrap is-justify-content-center has-background-white-ter is-flex-grow-5" 
+      style={{visibility: (titles.length !== 0 ?  "visible" : "hidden") }}
+      >
+        {movies}
+    </ul>
+  
+  return titleViewerReturn
+
 }
 export default TitleViewer

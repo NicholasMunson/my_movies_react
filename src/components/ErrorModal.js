@@ -5,7 +5,7 @@ const ErrorModal = (props) => {
   let errorMessage = "Looks like we cannot find that movie. Please try again."
   let message = props.errorMessage === "Cannot read property 'Search' of undefined" ? errorMessage : props.errorMessage
 
-  const errorModal = 
+  const errorModalReturn = 
     <div className="modal" style={{display: "inline"}}>
       <div className="modal-background">
         <div className="modal-content ">
@@ -20,7 +20,8 @@ const ErrorModal = (props) => {
       </div>
     </div>
 
-  return errorModal
+  return errorModalReturn
+
 }
 
 export default ErrorModal

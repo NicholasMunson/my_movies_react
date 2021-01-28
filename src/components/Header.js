@@ -12,7 +12,7 @@ const Header = (props) => {
   }
 
 
-  const nav = 
+  const navReturn = 
   <header className="has-background-light	">
     <nav className="is-flex is-justify-content-space-between navbar" role="navigation" aria-label="main navigation">
       <ul className="is-felx navbar-brand">
@@ -42,7 +42,7 @@ const Header = (props) => {
         </div>
       </ul>
       <div className="navbar-brand">
-      <div className="navbar-end">
+        <div className="navbar-end">
           <a onClick={burgerStatusHandler} role="button" className={`navbar-burger ${burgerStatus === true ? "is-active" : ""}`} aria-label="menu" aria-expanded="false" >
             <span aria-hidden="true"></span>
             <span aria-hidden="true"></span>
@@ -53,7 +53,7 @@ const Header = (props) => {
     </nav>
   </header>
 
-  return nav
+  return navReturn
 }
 
 export default Header

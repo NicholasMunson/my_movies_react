@@ -27,14 +27,16 @@ const Search = (props) => {
     return title.trim().toLowerCase().replace(/\s/g, "+")
   }
 
-  return(
+  const searchReturn = 
     <div className="is-flex is-justify-content-center	">
       <form className="is-flex is-justify-content-center" onSubmit={getMovieHandler}>
         <input className="input" type="text" placeholder="Search..." onChange={movieSearchHandler}/>
         <button className="button is-primary is-outlined" type="submit">Search</button>
       </form>
     </div>
-  )
+
+  return searchReturn
+  
 }
 
 export default Search
