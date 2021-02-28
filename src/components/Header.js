@@ -1,6 +1,8 @@
 import Logo from '../images/myMoviesClipBoard.png'
 import "./Header.css"
 import { useState } from 'react'
+import { Link } from "react-router-dom";
+
 const url = "http://localhost:3000/"
 
 const Header = (props) => {
@@ -26,17 +28,17 @@ const Header = (props) => {
         <div className="navbar-end">
           <div className="navbar-item">
             <li>
-              <a  role="button" href={url+"search"}>Search</a>
-            </li>
-          </div>
-          <div className="navbar-item">
-            <li>
-              <a  role="button" href={url+"collection"}>Collection</a>
+              <a  role="button" href={url+"search"}><Link to='/'>Home</Link></a>
             </li>
           </div>
           <div  className="navbar-item">
             <li>
-              <a role="button" href={url+"about"}>About</a>
+              <a role="button" href={url+"about"}><Link to='/about'>About</Link></a>
+            </li>
+          </div>
+          <div className="navbar-item">
+            <li>
+              <a  role="button" href={url+"collection"}><Link to='/collection'>Collection</Link></a>
             </li>
           </div>
         </div>

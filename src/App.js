@@ -1,3 +1,5 @@
+import React from 'react'
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Search from './components/Search'
 import TitleViewer from './components/TitleViewer'
 import ErrorModal from './components/ErrorModal'
@@ -31,12 +33,26 @@ const App = () => {
   
 
   return (
-    <div className="App">
-      <Header />
-      <h1 className="title"> Find a movie below</h1>
-      <Search movieSelectionHandler={movieSelectionHandler} errorModalHandler={errorModalHandler}/>
-      { errorHandler }
-    </div>
+    <Router>
+      <div className="App">
+      
+        <Route exact path='/'>
+          <Header />
+          <h1 className="title"> Find a movie below</h1>
+          <Search movieSelectionHandler={movieSelectionHandler} errorModalHandler={errorModalHandler}/>
+          { errorHandler }
+        </Route>
+
+        <Route path='/about'>
+          <Header />
+        </Route>
+
+        <Route path='/collection'>
+          <Header />
+        </Route>
+        
+      </div>
+    </Router>
   )
 }
 
