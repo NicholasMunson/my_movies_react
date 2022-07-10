@@ -24,6 +24,7 @@ const Search = (props) => {
     .then(res => res.Response === "True" ? res : alert(res.Error + " Please try another selection."))
     .then(data => {
       props.movieSelectionHandler(data.Search)
+      console.log(data)
     })
     .catch(error => console.log(error.message))
   }

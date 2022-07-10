@@ -12,7 +12,7 @@ const App = () => {
 
   return (
     <div className="App">
-      <h1 className="title"> Find a movie below</h1>
+      <h1 className="title"> Search for your favorite movie poster below</h1>
       <Search movieSelectionHandler={movieSelectionHandler}/>
       <TitleViewer titles={currentMovieSelection}/>
     </div>
