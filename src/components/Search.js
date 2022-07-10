@@ -12,6 +12,10 @@ const Search = (props) => {
     setMovieSearch(event.target.value)
   } 
 
+  const handleSubmit = (event) => {
+    event.preventDefault()
+  }
+
   const getMovieHandler = () => {
     let currentMovie = movieSearch
     let movieString = movieStringChangeHandler(currentMovie)
@@ -20,7 +24,6 @@ const Search = (props) => {
     .then(res => res.Response === "True" ? res : alert(res.Error + " Please try another selection."))
     .then(data => {
       props.movieSelectionHandler(data.Search)
-      console.log(data)
     })
     .catch(error => console.log(error.message))
   }
@@ -30,10 +33,12 @@ const Search = (props) => {
   }
 
   return(
-    <div className="is-flex is-justify-content-center	">
-      <input className="input" type="text" placeholder="Search..." onChange={movieSearchHandler}/>
-      <button className="button is-primary is-outlined" onClick={getMovieHandler}>Search</button>
-    </div>
+    <form onSubmit={handleSubmit}>
+      <div className="is-flex is-justify-content-center	">
+        <input className="input" type="text" placeholder="Search..." onChange={movieSearchHandler}/>
+        <button className="button is-primary is-outlined" onClick={getMovieHandler}>Search</button>
+      </div>
+    </form>
   )
 }
 
