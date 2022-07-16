@@ -6,6 +6,9 @@ import React, { useState } from 'react'
 const Search = (props) => {
   const apiKey = "apikey=a039a4b4"
   const [movieSearch, setMovieSearch] = useState("")
+  const [currentPage, setPage] = useState("")
+  let pageNumber = 1 //this will later use state and will be set dinamicly. 
+  let totalResults // this will be set in state then refrenced in the pagination component. 
 
   const movieSearchHandler = (event) => {
     event.preventDefault()
@@ -19,11 +22,12 @@ const Search = (props) => {
   const getMovieHandler = () => {
     let currentMovie = movieSearch
     let movieString = movieStringChangeHandler(currentMovie)
-    fetch(`http://www.omdbapi.com/?s=${movieString}&${apiKey}`)
+    fetch(`http://www.omdbapi.com/?s=${movieString}&${apiKey}&page=${pageNumber}`)
     .then(res => res.json())
     .then(res => res.Response === "True" ? res : alert(res.Error + " Please try another selection."))
     .then(data => {
       props.movieSelectionHandler(data.Search)
+      data.totalResults = totalResults
       console.log(data)
     })
     .catch(error => console.log(error.message))
