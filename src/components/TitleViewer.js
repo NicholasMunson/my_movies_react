@@ -11,7 +11,7 @@ const TitleViewer = (props) => {
     </li>
   )
   return(
-    <ul className="is-flex is-flex-wrap-wrap">{movies}</ul>
+    <ul className="is-flex is-flex-wrap-wrap is-justify-content-center">{movies}</ul>
   )
 }
 export default TitleViewer
